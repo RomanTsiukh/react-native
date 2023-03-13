@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, ImageBackground } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  TextInput,
+  Button,
+} from "react-native";
 
 export default function LoginScreen() {
   return (
@@ -15,7 +22,22 @@ export default function LoginScreen() {
         style={styles.image}
         source={require("../assets/picture_background.png")}
       >
-        <Text style={styles.text}>Hello world</Text>
+        {/* <Text style={styles.text}>Hello world</Text> */}
+        <View style={styles.form}>
+          <View>
+            <Text style={styles.inputTitle}>Адрес електронной почты</Text>
+            <TextInput style={styles.input} textAlign={"center"} />
+          </View>
+          <View style={{ marginTop: 20 }}>
+            <Text style={styles.inputTitle}>Пароль</Text>
+            <TextInput
+              style={styles.input}
+              textAlign={"center"}
+              secureTextEntry={true}
+            />
+          </View>
+          <Button title="Войти" />
+        </View>
       </ImageBackground>
     </View>
   );
@@ -30,10 +52,22 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: "cover",
     justifyContent: "center",
-    alignItems: "center",
+    // alignItems: "center",
   },
-  text: {
+  input: {
+    borderWidth: 1,
+    borderColor: "#f0f8ff",
+    height: 40,
+    borderRadius: 6,
+    // marginHorizontal: 30,
     color: "#fff",
-    fontSize: 30,
+  },
+  form: {
+    marginHorizontal: 40,
+  },
+  inputTitle: {
+    color: "#f0f8ff",
+    marginBottom: 10,
+    fontSize: 18,
   },
 });
