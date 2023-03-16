@@ -4,25 +4,16 @@ import {
   View,
   ImageBackground,
   TextInput,
-  Button,
+  TouchableOpacity,
 } from "react-native";
 
 export default function LoginScreen() {
   return (
-    // <View style={styles.container}>
-    //   <View style={styles.inerBox}>
-    //     <Text style={styles.text}>
-    //       Open up App.js to start working on your appp!
-    //     </Text>
-    //   </View>
-    //   <StatusBar style="auto" />
-    // </View>
     <View style={styles.container}>
       <ImageBackground
         style={styles.image}
         source={require("../assets/picture_background.png")}
       >
-        {/* <Text style={styles.text}>Hello world</Text> */}
         <View style={styles.form}>
           <View>
             <Text style={styles.inputTitle}>Адрес електронной почты</Text>
@@ -36,7 +27,9 @@ export default function LoginScreen() {
               secureTextEntry={true}
             />
           </View>
-          <Button title="Войти" />
+          <TouchableOpacity activeOpacity={0.7} style={styles.btn}>
+            <Text style={styles.btnTitle}>Войти</Text>
+          </TouchableOpacity>
         </View>
       </ImageBackground>
     </View>
@@ -68,6 +61,19 @@ const styles = StyleSheet.create({
   inputTitle: {
     color: "#f0f8ff",
     marginBottom: 10,
+    fontSize: 18,
+  },
+  btn: {
+    backgroundColor: "#ffb6c1",
+    height: 40,
+    borderRadius: 6,
+    marginTop: 40,
+    justifyContent: "center",
+    alignItems: "center",
+    marginHorizontal: 20,
+  },
+  btnTitle: {
+    color: "#f0f8ff",
     fontSize: 18,
   },
 });
