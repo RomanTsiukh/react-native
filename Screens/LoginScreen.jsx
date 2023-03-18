@@ -5,9 +5,11 @@ import {
   ImageBackground,
   TextInput,
   TouchableOpacity,
+  Platform,
 } from "react-native";
 
 export default function LoginScreen() {
+  console.log(Platform.OS);
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -45,6 +47,7 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: "cover",
     justifyContent: "center",
+    // justifyContent: "flex-end",
     // alignItems: "center",
   },
   input: {
@@ -52,7 +55,8 @@ const styles = StyleSheet.create({
     borderColor: "#f0f8ff",
     height: 40,
     borderRadius: 6,
-    // marginHorizontal: 30,
+
+    // marginHorizontal: 3,
     color: "#fff",
   },
   form: {
@@ -64,16 +68,18 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   btn: {
-    backgroundColor: "#ffb6c1",
+    backgroundColor: Platform.OS === "ios" ? "transparent" : "#4169e1",
     height: 40,
     borderRadius: 6,
+    borderWidth: 1,
+    borderColor: Platform.OS === "ios" ? "#f0f8ff" : "transparent",
     marginTop: 40,
     justifyContent: "center",
     alignItems: "center",
     marginHorizontal: 20,
   },
   btnTitle: {
-    color: "#f0f8ff",
+    color: Platform.OS === "ios" ? "#4169e1" : "#f0f8ff",
     fontSize: 18,
   },
 });
