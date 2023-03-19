@@ -68,15 +68,23 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   btn: {
-    backgroundColor: Platform.OS === "ios" ? "transparent" : "#4169e1",
     height: 40,
     borderRadius: 6,
     borderWidth: 1,
-    borderColor: Platform.OS === "ios" ? "#f0f8ff" : "transparent",
     marginTop: 40,
     justifyContent: "center",
     alignItems: "center",
     marginHorizontal: 20,
+    ...Platform.select({
+      ios: {
+        backgroundColor: "transparent",
+        borderColor: "#f0f8ff",
+      },
+      android: {
+        backgroundColor: "#4169e1",
+        borderColor: "transparent",
+      },
+    }),
   },
   btnTitle: {
     color: Platform.OS === "ios" ? "#4169e1" : "#f0f8ff",
